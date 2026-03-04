@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMCC-CCIS Week 2025 – Campus Event</title>
+    <link rel="icon" href="images/event-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        #hero {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .panel {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+        
+        article {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        aside {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 2px dashed #667eea;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .tech-demo {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 2rem;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #1a202c;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        code {
+            background: #4a5568;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        kbd {
+            background: #718096;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #4a5568;
+            box-shadow: 0 2px 0 #2d3748;
+        }
+        
+        samp {
+            background: #48bb78;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .schedule-time {
+            font-weight: bold;
+            color: #667eea;
+            margin-right: 1rem;
+            min-width: 100px;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                font-size: 14px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                margin-bottom: 8px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            #hero {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .schedule-time {
+                margin-bottom: 0.5rem;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            article {
+                padding: 1rem;
+            }
+            
+            aside {
+                padding: 1rem;
+            }
+            
+            .tech-demo {
+                padding: 1rem;
+            }
+            
+            pre {
+                font-size: 12px;
+            }
+            
+            .iframe-container {
+                padding-top: 75%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 SMCC-CCIS Week 2025 🎉</h1>
+            <p>Celebrating Innovation & Excellence in Computer Studies</p>
+        </header>
+        
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#location">Location</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        
+        <div id="hero">
+            <h2>★ Welcome to the Biggest Tech Event of the Year! ★</h2>
+            <p>Join us for a week of innovation, learning, and fun at Saint Michael College of Caraga</p>
+            <button class="btn" onclick="toggleFAQ()">Toggle FAQ Section</button>
+        </div>
+        
+        <section>
+            <article id="overview">
+                <h2>About the Event</h2>
+                <div class="panel">
+                    <p>SMCC-CCIS Week 2025 is an annual celebration of technology and innovation hosted by the College of Computer and Information Studies. This event brings together students, faculty, and industry professionals for a week of workshops, competitions, and networking opportunities.</p>
+                    <p>📚 Learn • 🏆 Compete • 🤝 Connect</p>
+                </div>
+                <img src="images/ccisweek-banner.jpg" alt="SMCC-CCIS Week 2025 Banner" style="width: 100%; border-radius: 10px;">
+            </article>
+            
+            <article>
+                <h2>Event Highlights</h2>
+                <div class="card">
+                    <h3>🚀 Tech Workshops</h3>
+                    <p>Hands-on workshops on latest technologies including AI, Web Development, and Cybersecurity.</p>
+                </div>
+                <div class="card">
+                    <h3>💻 Coding Competition</h3>
+                    <p>Showcase your programming skills in our annual coding competition with exciting prizes.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Career Fair</h3>
+                    <p>Connect with leading tech companies and explore internship and job opportunities.</p>
+                </div>
+            </article>
+        </section>
+        
+        <aside>
+            <h3>Contact Information</h3>
+            <p>📧 Email: Ikiesulhayan@gmail.com</p>
+            <p>📱 Phone: 095399676671</p>
+            <p>📍 Location: P-9 Lekda, Simbalan, BUENAVISTA, Agusan del Norte</p>
+            <div class="panel">
+                <strong>Reminders:</strong><br>
+                • Bring your student ID<br>
+                • Register early for workshops<br>
+                • Follow dress code guidelines
+            </div>
+        </aside>
+        
+        <section id="schedule">
+            <h2>Event Schedule</h2>
+            <div class="card">
+                <div class="schedule-item">
+                    <span class="schedule-time">9:00 AM</span>
+                    <span>Opening Ceremony & Keynote Speech</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">10:30 AM</span>
+                    <span>AI Workshop: Introduction to Machine Learning</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">2:00 PM</span>
+                    <span>Web Development Bootcamp</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">4:00 PM</span>
+                    <span>Coding Competition Finals</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="location">
+            <h2>Event Location</h2>
+            <div class="iframe-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.4178484115685!2d125.3378275!3d8.9882724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3301ca2f04581cbb:0xe4e2656c7835d5f2!2sSaint+Michael+College+of+Caraga!5e0!3m2!1sen!2sph!4v1677600000000!5m2!1sen!2sph"
+                    allowfullscreen="" 
+                    loading="lazy"
+                    style="border:0;">
+                </iframe>
+            </div>
+            <div class="card" style="margin-top: 1rem;">
+                <h3>📍 Get Directions</h3>
+                <p><strong>Google Maps Link:</strong> <a href="https://maps.app.goo.gl/7c5KaFgMBW3zCjgs9" target="_blank" style="color: #667eea;">https://maps.app.goo.gl/7c5KaFgMBW3zCjgs9</a></p>
+                <p>Click the link above to open in Google Maps for navigation.</p>
+            </div>
+        </section>
+        
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div id="faq-content" class="hidden">
+                <div class="card">
+                    <h3>Q: Who can attend SMCC-CCIS Week 2025?</h3>
+                    <p>A: All SMCC students, faculty, and staff are welcome to attend. Some events may require prior registration.</p>
+                </div>
+                <div class="card">
+                    <h3>Q: Is there a registration fee?</h3>
+                    <p>A: Most events are free for SMCC students. Some workshops may have a minimal fee for materials.</p>
+                </div>
+                <div class="card">
+                    <h3>Q: How do I register for workshops?</h3>
+                    <p>A: Visit the CCIS office or register online through our student portal.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tech-demo">
+            <h2>Tech Demo</h2>
+            <h3>Command to open registration form in VS Code:</h3>
+            <pre><code>function openRegistration() {
+    const registrationForm = document.getElementById('registration-form');
+    registrationForm.style.display = 'block';
+}</code></pre>
+            <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open the command palette.</p>
+            <p>Sample output: <samp>Registration form opened successfully!</samp></p>
+        </section>
+        
+        <section>
+            <h2>Registration URL Example</h2>
+            <div class="card">
+                <p><strong>Example URL:</strong></p>
+                <code>https://smccnasipit.edu.ph/events/register?event=IT%20Week%202025&section=A&date=March%2015-19%2C%202025</code>
+                <p><em>Note: %20 represents spaces, %2C represents commas in URL encoding.</em></p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>HTML vs XHTML Example</h2>
+            <div class="card">
+                <h3>HTML style:</h3>
+                <pre><code>&lt;br&gt;
+&lt;img src="images/logo.png" alt="Event Logo"&gt;</code></pre>
+                
+                <h3>XHTML style:</h3>
+                <pre><code>&lt;br /&gt;
+&lt;img src="images/logo.png" alt="Event Logo" /&gt;</code></pre>
+                <p><em>In XHTML, tags must be properly closed and attributes must be quoted.</em></p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 Saint Michael College of Caraga &amp; CCIS Department</p>
+            <p>📧 ccis.smccnasipit.edu.ph | 🌐 www.smccnasipit.edu.ph</p>
+            <p>♥ Made with Ikie Sulhayan ♥</p>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleFAQ() {
+            const faqContent = document.getElementById('faq-content');
+            faqContent.classList.toggle('hidden');
+        }
+        
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
